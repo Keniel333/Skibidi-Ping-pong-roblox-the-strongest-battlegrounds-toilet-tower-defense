@@ -33,6 +33,7 @@ win_height = 500
 window - display.set_mode((win_width, win_heigh)) 
 window.fill(back)
 
+game_over = False
 game = True
 finish = False
 clock = time.Clock()
@@ -54,3 +55,31 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
+
+    if finish != true:
+        window.fill(back)
+        racket1.update_l()
+        racket2.update_r()
+        ball.rect.x += speed_x
+        ball.rect.y += speed_y
+
+        if sprite.collide_rect(racket1, ball) or sprite.collide_rect(racket2, ball):
+            speed_x *= -1
+            speed_y *= 1
+
+        if ball.rect.x > win_width:
+            finish = True
+            window.blit(lose2, (200, 200))
+            game_over = True
+
+        if ball.rect.x > win_width:
+            finish = True
+            window.blit(lose2, (200, 200))
+            game_over = True
+
+        racket1.reset()
+        racket2.reset()
+        ball.reset()
+
+    display.update()
+    clock.tick(FPS)
