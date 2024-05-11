@@ -30,7 +30,7 @@ class Player(GameSprite):
 back = (200, 255, 255)
 win_width = 600
 win_height = 500
-window = display.set_mode((win_width, win_heigh)) 
+window = display.set_mode((win_width, win_height)) 
 window.fill(back)
 
 game_over = False
@@ -56,7 +56,7 @@ while game:
         if e.type == QUIT:
             game = False
 
-    if finish != true:
+    if finish != True:
         window.fill(back)
         racket1.update_l()
         racket2.update_r()
